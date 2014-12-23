@@ -26,6 +26,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'wikimatze/hammer.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-eunuch.git'
 " <<< END VUNDLE PLUGIN LIST
 
 " >>> BEGIN VUNDLE-AUTO-MAGIC-BUNDLE-INIT
