@@ -113,4 +113,9 @@ set nu
 let g:loaded_netrw       = 1
 let g:loaded_netrwPlugin = 1
 
+" tabs are the DEVIL
+set expandtab
+set tabstop=4
+set shiftwidth=4
+
 " <<< END USER CONFIG
