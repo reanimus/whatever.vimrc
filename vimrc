@@ -39,7 +39,8 @@ if wow_no_vundle == 0
     Plugin 'altercation/vim-colors-solarized'
     Plugin 'wikimatze/hammer.vim'
     Plugin 'scrooloose/nerdtree'
-    Plugin 'tpope/vim-eunuch.git'
+    Plugin 'tpope/vim-eunuch'
+    Plugin 'tpope/vim-commentary'
 endif
 " <<< END VUNDLE PLUGIN LIST
 
@@ -77,33 +78,16 @@ if wow_no_vundle == 0
     autocmd StdinReadPre * let s:std_in=1
     autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-    " hack to workaround a bug when deleting buffers
-    function! g:WorkaroundNERDTreeToggle()
-        try | :NERDTreeToggle | catch | :NERDTree | endtry
-    endfunction
 
     " map to ctrl-o
-    map <C-o> :call g:WorkaroundNERDTreeToggle()<CR>
+    map <C-o> :NERDTreeToggle<CR>
 
     " close the tree when opening a file
     let g:NERDTreeQuitOnOpen = 1
 
-    " Check if NERDTree is open or active
-    function! rc:isNERDTreeOpen()        
-      return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
-    endfunction
-     
-    " Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
-    " file, and we're not in vimdiff
-    function! rc:syncTree()
-      if &modifiable && rc:isNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
-        try | :NERDTreeFind | catch | :NERDTree | :NERDTreeFind | endtry
-        wincmd p
-      endif
-    endfunction
-     
     " close vim if nerdtree is the only remaining buffer
-    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif | call rc:syncTree()
+    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
 endif
 " CORE:
 """""""
