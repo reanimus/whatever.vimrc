@@ -5,7 +5,7 @@ I guess I should use a uniform git environment
 ## Installation
 
 1. Clone this baby  
-   `$ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim` 
+   `$ git clone https://github.com/reanimus/whatever.vimrc ~/.vim` 
 2. Clone Vundle  
    `$ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
 3. Open vim and install bundles  
